@@ -16,7 +16,8 @@ const Product = mongoose.model('Product', {
   category: {
     type: mongoose.SchemaTypes.ObjectId,
     ref: 'Category',
-    required: true,
   }
 
 })
+
+module.exports = Product;
