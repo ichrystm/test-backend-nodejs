@@ -14,7 +14,8 @@ const Product = mongoose.model('Product', {
     required: true,
   },
   category: {
-    type: Number,
+    type: mongoose.SchemaTypes.ObjectId,
+    ref: 'Category',
     required: true,
   }
 
