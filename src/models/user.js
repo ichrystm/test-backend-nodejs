@@ -1,7 +1,7 @@
 const mongoose = require('../database/database');
 
 const User = mongoose.model('User', {
- nome: {
+ name: {
    type: String,
    required: true,
  },
