@@ -18,24 +18,6 @@ class CategoryController {
       })
     }
   }
-  
-  /* async findById(req, res){
-    const id = req.params.id;
-
-    const category = await Category.findById(id);
-
-    if(category != undefined){
-      console.log(category);
-      res.status(200);
-      res.json(category)
-    }else{
-      res.status(404);
-      res.json({
-        Error: "Category not found."
-      })
-    }
-
-  } */
 
 }
 

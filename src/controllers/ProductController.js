@@ -1,7 +1,6 @@
 const { ObjectID } = require('bson');
 const Category = require('../models/Category');
 const Product = require('../models/Product');
-//const CategoryController = require('../controllers/CategoryController');
 
 class ProductController {
 
@@ -61,6 +60,77 @@ class ProductController {
     }
 
   } 
+
+  async get(req, res){
+    const products = await Product.find()
+    if(products.length >= 1){
+      res.status(200);
+      res.json(products);
+    }else{
+      res.status(404)
+      res.json({
+        Erro: "Nenhum produto encontrado."
+      })
+    }
+  }
+
+  async edit(req, res){
+    const { productId, title, description, price, categoryId } = req.body;
+    const isCategory = await ObjectID.isValid(categoryId);
+
+
+    if(title == null || description == null || price == null || isNaN(price) == true || categoryId == null || isCategory == false){
+      res.status(400);
+      res.json({
+        Error: "Invalid fields"
+      })
+
+    }else{
+
+    const isProductId = await ObjectID.isValid(productId);
+    if(isProductId == true){
+    const product = await Product.findById(productId);
+    const category = await Category.findById(categoryId);
+    if(product != null){
+
+      if(category == null){
+        res.status(404);
+        res.json({
+          Error: "Category not found."
+        })
+        return;
+      }
+
+      const updatedProduct = await Product.updateOne(
+        {_id: productId},
+        {
+          title: title,
+          description: description,
+          price: price,
+          category: category
+        }
+      )
+
+      res.status(200);
+      res.json({Message: `Product id ${productId} updated sucessfull.`});
+
+    }else{
+      res.status(204);
+      res.json({
+        Error: "Product not found"
+      })
+    }
+    
+    }else{
+      res.status(400);
+      res.json({
+        Error: "Invalid product"
+      })
+    }
+
+    }
+  }
+
 }
 
 module.exports = new ProductController();
