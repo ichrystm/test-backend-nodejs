@@ -1,40 +1,25 @@
 <h1>Backend Analyst Candidate Testing</h1>
+<h2>Chrysler Oliveira</h2>
 
-Hello dear developer, in this test we will analyze your general knowledge and even speed of development. Below we will explain everything that will be needed.
-Do not be alarmed, we do not expect everyone to be able to complete all tasks, this test is the same presented for candidates of all experience levels, so do what you can without worry.
+<strong>Routes:</strong>
 
-<strong>The challenge</strong>
+# Home:
+- GET: "/" - Displays an "App online" message.
 
-Your challenge is to develop an API, using Node.JS, for a product catalog management application. Thus, you must analyze and convert the user stories below into routes of an application.
- 
-<strong>User stories:</strong>
+# Category:
+- POST: "/category" - Create a new category.
 
-- As a user I would like to register a product so that I can have access to the data of this product in the future (Title, description, price, category)
-- I as a user would like to be able to associate and edit a product category;
-- As a user I would like to be able to access the list of all products;
-- As a user I would like to be able to filter products by name or category;
-- I as a user would like to be able to update the product data;
-- I as a user would like to be able to delete a product from my catalog;
- 
-<strong>Instructions</strong>
-- <strong>To start the test, <strong>fork</strong> this repository, create a branch with its full name and then and send us the link to the test performed (link to your repository) . If you just clone the repository you will not be able to push and then it will be more complicated to make the pull request.</strong>
-- The choice of libraries, databases, architecture, etc. is at your discretion.
-- Change the README file explaining what it takes to run your application.
-- Paste the branch name into the GUPY system and indicate the completion of the test
-- If you want you can leave us feedback regarding the test
+# Product:
+- GET: "/products" - Get all products
+- POST: "/products" - Create a new product
+- PATCH: "/products/:id" - Edit a product by ID (including the producte category)
+- DELETE: "/products/:id" - Delete a product by ID
 
- 
-<strong>Our analysis</strong>
-- Knowledge of Javascript, NodeJs, Express will be assessed for this position;
-- We'll look at how you structure the:
-  application layers;
-  outgoing calls,
-  environment variables,
-   cache,
-  unit tests,
-  logs;
-  error handling;
-  documentation.
-- Code organization, module separation, readability and comments.
-- Commit history.
-- The use of MongoDB is a differentiator
+<strong>Installation guide</strong>
+1 - Download or clone this repositorie
+2 - Open in your favorite editor
+3 - Open your terminal inside the project folder
+4 - run npm install (or equivalent)
+5 - Set the app port in ./index.js "port" variable
+6 - Setup your MongoDB connection in ./database/database.js file changing the URI and password
+7 - Enjoy
