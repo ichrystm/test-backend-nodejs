@@ -11,5 +11,6 @@ router.post('/category', CategoryController.create);
 router.get('/product', ProductController.get);
 router.post('/product', ProductController.create);
 router.patch('/product', ProductController.edit);
+router.delete('/product', ProductController.delete);
 
 module.exports = router;

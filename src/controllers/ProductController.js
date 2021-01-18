@@ -131,6 +131,36 @@ class ProductController {
     }
   }
 
+  async delete(req, res){
+    const productId = req.body.productId;
+    const isProductId = await ObjectID.isValid(productId);
+
+    if(isProductId == false){
+      res.status(400);
+      res.json({
+        Error: "Invalid product"
+      })
+      return;
+    }
+
+    const product = await Product.findById(productId);
+    if(product == null){
+      res.status(404);
+      res.json({
+        Error: "Product not found"
+      })
+      return;
+    }
+
+    const deletedProduct = await Product.deleteOne({
+      _id: productId
+    })
+
+    res.status(200);
+    res.json(deletedProduct);
+
+  }
+
 }
 
 module.exports = new ProductController();
