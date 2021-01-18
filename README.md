@@ -16,7 +16,7 @@
 - DELETE: "/products/:id" - Delete a product by ID
 
 <strong>Installation guide</strong>
-- Download or clone this repositorie
+- Download or clone this repository
 - Open in your favorite editor
 - Open your terminal inside the project folder
 - run npm install (or equivalent)
