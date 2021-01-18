@@ -75,7 +75,8 @@ class ProductController {
   }
 
   async edit(req, res){
-    const { productId, title, description, price, categoryId } = req.body;
+    const {title, description, price, categoryId } = req.body;
+    const productId = req.params.id;
     const isCategory = await ObjectID.isValid(categoryId);
 
 
@@ -132,7 +133,7 @@ class ProductController {
   }
 
   async delete(req, res){
-    const productId = req.body.productId;
+    const productId = req.params.id;
     const isProductId = await ObjectID.isValid(productId);
 
     if(isProductId == false){
@@ -157,8 +158,9 @@ class ProductController {
     })
 
     res.status(200);
-    res.json(deletedProduct);
-
+    res.json({
+      Message: `Product ${productId} deleted sucessfull.`
+    })
   }
 
 }
