@@ -7,6 +7,7 @@ const router = express.Router();
 router.get('/', HomeController.index);
 
 router.post('/category', CategoryController.create);
+router.get('/category', CategoryController.get);
 
 router.get('/product', ProductController.get);
 router.post('/product', ProductController.create);
