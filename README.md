@@ -18,7 +18,7 @@
 # Product:
 - GET: "/products" - Get all products
 
-- POST: "/products" - Create a new product
+- POST: "/products" - Create a new product.
   Example (JSON via Postman):
   {
     "title": "Peugeot",
@@ -28,7 +28,7 @@
   }
   OBS: You can get the categoryId using GET /categories
 
-- PATCH: "/products/:id" - Edit a product by ID (including the producte category)
+- PATCH: "/products/:id" - Edit a product by ID (including the producte category).
   Example (JSON via Postman):
   {
     "title": "Citroen",
